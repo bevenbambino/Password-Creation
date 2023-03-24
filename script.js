@@ -1,4 +1,14 @@
 // Assignment code here
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("")
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
+var Numbers = "1234567890".split("")
+var specialCharacters = ["!","\u0022","#","$","%","&","'","(",")","*","+",",","-",
+".","/",":",";","<","=",">","?","@","[","\u005C","]","^","_","`","{",
+"|", "}","~",]
+
+var tempArray = []
+
+
 
 function generatePassword() {
   var passwordLength = prompt("How long would you like your password?");
@@ -16,19 +26,24 @@ function generatePassword() {
 
    if (passwordCharacters === true) {
     console.log("Character yes")
+    tempArray.push(...specialCharacters)
    }
 
    if (passwordNumbers === true) {
     console.log("Numbers yes")
+    tempArray.push(...Numbers)
    }
 
    if (passwordUppercase === true) {
     console.log("Uppercase yes")
+    tempArray.push(...upperCase)
    }
 
    if (passwordLowercase === true) {
     console.log("Lowercase yes")
+    tempArray.push(...lowerCase)
    }
+   console.log(tempArray)
 }
 
 // Get references to the #generate element
