@@ -1,14 +1,43 @@
 // Assignment code here
-var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("")
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
-var Numbers = "1234567890".split("")
-var specialCharacters = ["!","\u0022","#","$","%","&","'","(",")","*","+",",","-",
-".","/",":",";","<","=",">","?","@","[","\u005C","]","^","_","`","{",
-"|", "}","~",]
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var Numbers = "1234567890".split("");
+var specialCharacters = [
+  "!",
+  "\u0022",
+  "#",
+  "$",
+  "%",
+  "&",
+  "'",
+  "(",
+  ")",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "\u005C",
+  "]",
+  "^",
+  "_",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
 
-var tempArray = []
-
-
+var tempArray = [];
 
 function generatePassword() {
   var passwordLength = prompt("How long would you like your password?");
@@ -17,33 +46,43 @@ function generatePassword() {
   var passwordUppercase = confirm("Would you like to add a uppercase letter?");
   var passwordLowercase = confirm("Would you like add a lowercase letter?");
 
-  if(passwordLength >8 && passwordLength <128){
-    console.log("yo i work")
-    
-   } else {
-    alert("Password Doesnt meet Requirement. It should be 8-128 characters long.")
-   }
+  if (passwordLength > 8 && passwordLength < 128) {
+    console.log("yo i work");
+  } else {
+    alert(
+      "Password Doesnt meet Requirement. It should be 8-128 characters long."
+    );
+  }
 
-   if (passwordCharacters === true) {
-    console.log("Character yes")
-    tempArray.push(...specialCharacters)
-   }
+  if (passwordCharacters === true) {
+    console.log("Character yes");
+    tempArray.push(...specialCharacters);
+  }
 
-   if (passwordNumbers === true) {
-    console.log("Numbers yes")
-    tempArray.push(...Numbers)
-   }
+  if (passwordNumbers === true) {
+    console.log("Numbers yes");
+    tempArray.push(...Numbers);
+  }
 
-   if (passwordUppercase === true) {
-    console.log("Uppercase yes")
-    tempArray.push(...upperCase)
-   }
+  if (passwordUppercase === true) {
+    console.log("Uppercase yes");
+    tempArray.push(...upperCase);
+  }
 
-   if (passwordLowercase === true) {
-    console.log("Lowercase yes")
-    tempArray.push(...lowerCase)
-   }
-   console.log(tempArray)
+  if (passwordLowercase === true) {
+    console.log("Lowercase yes");
+    tempArray.push(...lowerCase);
+  }
+  console.log(tempArray);
+
+  var newPassword = "";
+
+  for (i = 0; i < passwordLength; i++) {
+    newPassword =
+      newPassword + tempArray[Math.floor(Math.random() * tempArray.length)];
+  }
+
+  return newPassword;
 }
 
 // Get references to the #generate element
@@ -55,10 +94,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
