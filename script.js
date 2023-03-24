@@ -6,12 +6,29 @@ function generatePassword() {
   var passwordNumbers = confirm("Would you like to add any Numbers?");
   var passwordUppercase = confirm("Would you like to add a uppercase letter?");
   var passwordLowercase = confirm("Would you like add a lowercase letter?");
-  
-  console.log(passwordLength)
-  console.log(passwordCharacters)
-  // if(){
 
-  // }
+  if(passwordLength >8 && passwordLength <128){
+    console.log("yo i work")
+    
+   } else {
+    alert("Password Doesnt meet Requirement. It should be 8-128 characters long.")
+   }
+
+   if (passwordCharacters === true) {
+    console.log("Character yes")
+   }
+
+   if (passwordNumbers === true) {
+    console.log("Numbers yes")
+   }
+
+   if (passwordUppercase === true) {
+    console.log("Uppercase yes")
+   }
+
+   if (passwordLowercase === true) {
+    console.log("Lowercase yes")
+   }
 }
 
 // Get references to the #generate element
